@@ -2,6 +2,13 @@
 A collection of Chemthunder's unused code for minecraft mods, mainly so ArcCM can stop ripping me off directly
 
 
+
+
+
+
+
+
+
 // Exp Sacrifice Mechanic (aka Soulfork from Impaled)
 Quite simple, upon right-click detects if the user has an experience level above zero, the proceeds to run an action.
 In this instance, it will dash the player forward
