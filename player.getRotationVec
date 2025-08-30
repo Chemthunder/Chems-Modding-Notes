@@ -1,0 +1,6 @@
+// player.getRotatiomVec is useful for making dashes and movement based mechanics, taking the direction they user is 
+
+                user.addVelocity(user.getRotationVec(0).multiply(5));
+                user.velocityModified = true
+
+this code will dash the user forward
