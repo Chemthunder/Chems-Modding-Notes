@@ -1,0 +1,71 @@
+   1.19.2, used in Limbo Revamped
+
+ @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+
+        if (!world.isClient && user instanceof ServerPlayerEntity serverPlayer) {
+            teleportToHeaven(serverPlayer);
+        }
+
+        if (hand == Hand.OFF_HAND && !world.isClient && user instanceof ServerPlayerEntity serverPlayer) {
+            // Only teleport if not already in Overworld
+            if (serverPlayer.getWorld().getRegistryKey() != World.OVERWORLD) {
+                teleportToOverworld(serverPlayer);
+                return TypedActionResult.success(user.getStackInHand(hand));
+            } else {
+                return TypedActionResult.pass(user.getStackInHand(hand));
+            }
+        }
+
+        return super.use(world, user, hand);
+    }
+
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        World world = target.getWorld();
+
+
+        if (!world.isClient && target instanceof ServerPlayerEntity serverPlayer) {
+            teleportToHeaven(serverPlayer);
+        }
+        return super.postHit(stack, target, attacker);
+    }
+
+
+    private void teleportToOverworld(ServerPlayerEntity player) {
+        // Get the Overworld registry key
+        RegistryKey<World> overworldKey = World.OVERWORLD;
+        ServerWorld targetWorld = player.getServer().getWorld(overworldKey);
+
+        if (targetWorld != null) {
+            // Teleport the player to the specified coordinates in the Overworld
+            player.teleport(
+                    targetWorld,
+                    0.5,       // X
+                    150.0,     // Y
+                    0.5,       // Z
+                    player.getYaw(),   // Keep current facing direction
+                    player.getPitch()
+            );
+        } else {
+            System.out.println("Failed to find Overworld!");
+        }
+    }
+
+    private void teleportToHeaven(ServerPlayerEntity player) {
+        RegistryKey<World> limboWorldKey = RegistryKey.of(Registry.WORLD_KEY, new Identifier("limbo", "heaven"));
+        ServerWorld targetWorld = player.getServer().getWorld(limboWorldKey);
+
+        if (targetWorld != null) {
+            player.teleport(targetWorld,
+                    targetWorld.getSpawnPos().getX() + 0.5,
+                    targetWorld.getSpawnPos().getY(),
+                    targetWorld.getSpawnPos().getZ() + 0.5,
+                    player.getYaw(),
+                    player.getPitch()
+            );
+        } else {
+            System.out.println("Failed to find Limbo world!");
+        }
+    }
