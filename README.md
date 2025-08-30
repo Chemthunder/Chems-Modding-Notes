@@ -10,7 +10,6 @@ this code runs on 1.21.8, so may need some skill to backport.
 here we go :3
 
 @Override
-
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getMainHandStack();
         if (world instanceof ServerWorld serverWorld) {
