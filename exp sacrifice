@@ -1,17 +1,15 @@
+// This Mechanic is extremely similar to the Soulfork from Impaled, making it so that when your item is used it detects whether the user has an experience level, then runs the code. else, it damages the user.
+
 @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getMainHandStack();
         if (world instanceof ServerWorld serverWorld) {
             if (user.experienceLevel > 0) {
                 user.addExperienceLevels(-1);
-                user.addVelocity(user.getRotationVec(0).multiply(5));
-                user.velocityModified = true;
-                user.getItemCooldownManager().set(stack, 30);
-                user.playSound(NorthSounds.SWOOSH);
+         // code go here
             } else {
-                user.addVelocity(user.getRotationVec(0).multiply(5));
-                user.velocityModified = true;
-                user.damage(serverWorld, NorthDamageTypes.throngled(user), 4f);
+                // code go here
+                user.damage(serverWorld, DamageSources.generic(user), 4f); //idr how to use a default damage source, so I recommend using a custom one!
             }
             return super.use(world, user, hand);
         }
