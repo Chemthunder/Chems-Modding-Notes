@@ -1,0 +1,24 @@
+@Mixin(PlayerEntity.class)
+public abstract class PlayerEntityMixin extends LivingEntity {
+    protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
+    @Inject(
+            method = {"attack"},
+            at = {@At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/entity/player/PlayerEntity;addCritParticles(Lnet/minecraft/entity/Entity;)V"
+            )}
+    )
+    private void attackTargetOnCrit(Entity target, CallbackInfo ci) {
+        PlayerEntity player = (PlayerEntity)(Object)this;
+        ItemStack stack = this.getStackInHand(Hand.MAIN_HAND);
+        if (stack.getItem() instanceof <Insert Item Class> item) {
+            if (target instanceof LivingEntity living) {
+                // Insert Code
+
+            }
+        }
+    }
+}
