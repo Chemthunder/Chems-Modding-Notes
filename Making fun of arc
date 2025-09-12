@@ -9,6 +9,10 @@ src/main/org/examplemod/registries/ExampleModItems
 
 src/main/org/examplemod/registries/ExampleModItems
 
+IF YOU DID THIS AT ALL YOU WOULDN'T BE USING THE SAME MOD.
+NOBODY WOULD NAME THEIR SRC PACKAGES 
+"src/main/dev/chemthunder/examplemod" AND HAVE EXAMPLEMOD IMPLEMENTED AS WELL. 
+
 Be aware this will likely never happen, because everyone uses a different name for their packages. Saying you SHOULD do this is stupid
 because you will likely never need to. It's always safe to take precautions but this is a wee excessive.
 
