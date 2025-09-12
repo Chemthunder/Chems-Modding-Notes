@@ -1,0 +1,84 @@
+OKAY! Apparently I needed this.
+
+if (world instanceof ServerWorld serverWorld) {
+  serverWorld.sendMessage(Text.literal("example message"));
+}
+
+// this allows usage of ServerWorld, utilizing instanceof, which checks if A is B. An example being if A, or world, is a ServerWorld, B. 
+// ServerWorld is almost always active, I think, and allows control over server properties, such as the time, weather, console, and more.
+
+<><>
+
+Text.literal and Text.translatable are VERY different. Text.literal just sends exactly what you put in the parentheses, and has little ability over customization.
+However, it is simpler to use.
+
+Text.translatable allows for the use of a String key, which you can define in your resources/assets/modid/lang/en_us.json file.
+
+Example: 
+user.sendMessage(Text.translatable("text.example.send")(insert parameters));
+
+You can then, in your lang file, put
+"text.example.send": "example"
+to translate it.
+
+Translatable's parameters (that I can find, as of 1.21.1) Are:
+Formatting:
+Changing the color of the text to a default color, strikethrough, italics, bold, etc.
+eg. .formatting(Formatting.YELLOW), .formatting(Formatting.STRIKETHROUGH)
+
+withColor (might be from a library i'm using :sob:)
+Changes the color of the text to a hex code. Always make sure to use 0x before the hex code!
+eg. .withColor(0xFFFFFFFF)
+
+overlay:
+Overlay is a default boolean parameter, and its always kind of funky where it shows up. But I think this should work.
+
+user.sendMessage(Text.literal("example"), true);
+
+Overlay changes from displaying the text in the chat log to the actionBar overlay.
+(To see what I mean, run /title @s actionbar ["a"] in a Minecraft instance!)
+
+
+<><>
+To play sounds to the player.
+
+if (entity instanceof PlayerEntity player) {
+  player.playSoundToPlayer(sound, category, 1, 1);
+}
+
+Let's break how to play a sound down.
+
+<entity instanceof PlayerEntity player> checks if the entity being checked and applied to is a player.
+
+<player.playSoundToPlayer>, plays the sound. obviously.
+sound is where you would paste your SoundEvent. You cannot use RegistryKeys that I know of.
+Examples:
+SoundEvents.BLOCK_AMETHYST_CHIME
+ModSoundEvents.EXAMPLE_SOUND_EVENT
+
+category is the way the sound is played.
+I don't know much of this, but here's what I know.
+
+MASTER - Plays the sound to the player. No location or volume pitching, just plays.
+
+AMBIENT - plays the sound with a location from where it is played. Scales with distance.
+
+BLOCK - Has location, plays as if a block was broken. Does not scale with distance to a noticeable amount.
+
+1, 1 is volume and pitch.
+
+<><>
+
+Enchancemnt goofies.
+
+For an item to have the enchants it needs with a custom tool material, YOU HAVE TO ASSIGN IT TO THE APPROPRIATE TAG.
+If you're using a sword with a custom tool material, Enchancement won't know if the item has sword enchants since said custom tool material isn't known.
+To fix this, add your item to Resources/Data/minecraft/tags/swords.json
+This will make your item have sword enchants, along with using your custom tool repair material as an enchant material.
+
+
+<><>
+
+DO NOT USE world.addPArticle IT IS INEFFICIENT AND UNNEEDED.
+
+Instead, use the instanceof mentioned above to use serverWorld.spawnParticles, which is essentially running the /particle command from the base game.
