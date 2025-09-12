@@ -1,0 +1,26 @@
+Fun stuff to poke fun at ArcCM (Or Katto or whatever the fuck)
+
+
+Item registry classes DO NOT have to be called ModNameItems. You can name literally any of your classes whatever the hell you want, conflicting classes literally
+only happens if you are using the same src package names:
+
+example:
+src/main/org/examplemod/registries/ExampleModItems
+
+src/main/org/examplemod/registries/ExampleModItems
+
+Be aware this will likely never happen, because everyone uses a different name for their packages. Saying you SHOULD do this is stupid
+because you will likely never need to. It's always safe to take precautions but this is a wee excessive.
+
+Yes you can name your item registries anything across any version, it does not fucking matter.
+
+Also, don't use Text.literal for tooltips, nor make having enters harder than they should be. Yes this is good if you want different colors but it really
+doesn't matter when some libraries do this for you.
+
+Use \n, it's much better.
+
+Also Arc, I saw what you put in ArcSenal_1.19.2, fix your sorry excuse for pulling entities toward you.
+Use entity.getRotationVec, it saves so much time, and it works across versions.
+
+Remove the stolen assets from Eternite as well while you're at it, art thief.
+
