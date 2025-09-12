@@ -15,3 +15,17 @@
         }
         return null;
     }
+
+Let's break this down!
+ItemStack stack = user.getMainHandStack(); gets and assigns a variable to the item being used.
+
+if (world instanceof ServerWorld serverWorld) detects if the world is a server.
+
+if (user.experienceLevel > 0) {
+user.addExperienceLevels(-1);
+
+This checks if the user has an experience level, than subtracts one level. From there, you can run any functions or uses you want!
+
+}else{
+user.damage(serverWorld, DamageSources.generic(user), 4f); 
+This checks that if the user has no experience levels to give, it deals damage to the user!
