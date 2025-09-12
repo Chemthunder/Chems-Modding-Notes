@@ -25,10 +25,10 @@
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = target.getWorld();
 
-
         if (!world.isClient && target instanceof ServerPlayerEntity serverPlayer) {
             teleportToHeaven(serverPlayer);
         }
+
         return super.postHit(stack, target, attacker);
     }
 
@@ -42,14 +42,15 @@
             // Teleport the player to the specified coordinates in the Overworld
             player.teleport(
                     targetWorld,
-                    0.5,       // X
+                    0.5,       // X   // Sets the destination coordinates
                     150.0,     // Y
                     0.5,       // Z
-                    player.getYaw(),   // Keep current facing direction
+                    player.getYaw(),   // Keeps the user's current facing direction
                     player.getPitch()
             );
         } else {
             System.out.println("Failed to find Overworld!");
+// or you can run a LOGGER.ERROR instead, it doesn't matter much
         }
     }
 
@@ -67,5 +68,6 @@
             );
         } else {
             System.out.println("Failed to find Limbo world!");
+// or you can run a LOGGER.ERROR instead, it doesn't matter much
         }
     }
