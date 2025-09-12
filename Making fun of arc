@@ -18,7 +18,7 @@ because you will likely never need to. It's always safe to take precautions but 
 
 Yes you can name your item registries anything across any version, it does not fucking matter.
 
-Also, don't use Text.literal for tooltips, nor make having enters harder than they should be. Yes this is good if you want different colors but it really
+Also, don't use Text.literal for tooltips, nor make placing indents harder than they should be (by making extras). Yes this is good if you want different colors but it really
 doesn't matter when some libraries do this for you.
 
 Use \n, it's much better.
