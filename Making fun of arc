@@ -24,3 +24,27 @@ Use entity.getRotationVec, it saves so much time, and it works across versions.
 
 Remove the stolen assets from Eternite as well while you're at it, art thief.
 
+
+Again, don't use text.literal. reference things-i-probably-should-know-:sob: in this repo for Text.translatable.
+
+
+WE for BCSMP use Fabric 0.16.10 because it is the most compatible with Quilt 1.19.2, not because it offers support.
+
+Don't use Carpet for all of your mod's testing, as you cannot experience what the ghost player is seeing.
+iirc Carpet players also do not load chunks, though i may be wrong.
+
+Sharing via LAN is fine, but do note its risks.
+
+For testing in multiplayer just export the mod as a jar file and test with a friend?
+It guarentees a second opinion and it gives more openness to finding bugs and incompatibility issues.
+
+
+I'll offer some of my details too!
+
+For custom Item classes (as in custom functionality), use a different directory in your main package named Item instead of just dropping it in your Index directory.
+Learn file management.
+
+Hey also, you don't need to fucking explain how to add a library. Most libraries have instructions on their own wikis.
+
+Also also, it's not "new Item()" if you're using interfaces for registries instead of classes.
+Offer both sides of a coin, or be clear that you're using a class.
