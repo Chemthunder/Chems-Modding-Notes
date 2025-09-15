@@ -18,9 +18,14 @@ Example:
 user.sendMessage(Text.translatable("text.examplemod.text_example"));
 
 
-TEXT UTILITIES !!!!!!
+# TEXT UTILITIES !!!!!!
 
 Colored text:
 Text.translatable("text.examplemod.text_example").setStyle(Style.EMPTY.withColor(// insert hex code));
 
-will update later blegh
+Default text colors, italics, strikethough, and bold
+Text.translatable("text.examplemod.test_example").formatting(FORMATTED.color, bold, italic, strikethrough, etc));
+
+Text indentation
+use \n for indents
+
