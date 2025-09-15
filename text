@@ -1,0 +1,26 @@
+A simple guide to text.
+
+
+When using text, such as in Text.literal in a user.sendMessage, there are two(ish) types of text you can use.
+
+Text.literal (less options, less utility, more straightforward)
+Text.literal, instead of creating a string key, just literally displays the text.
+
+example:
+user.sendMessage(Text.literal("Hi! this is an example :3"));
+
+Less options you can choose for customization but it's useful when needed.
+
+Text.translatable (generally better)
+Text.translatable is Text.literal's bigger brother, by creating a string key that can be translated in your lang file.
+
+Example:
+user.sendMessage(Text.translatable("text.examplemod.text_example"));
+
+
+TEXT UTILITIES !!!!!!
+
+Colored text:
+Text.translatable("text.examplemod.text_example").setStyle(Style.EMPTY.withColor(// insert hex code));
+
+will update later blegh
