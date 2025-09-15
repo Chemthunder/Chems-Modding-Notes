@@ -1,0 +1,6 @@
+ServerWorld and World are different actions that apply on the user's world.
+
+ServerWorld is actions that are commands and details to the physical world, such as time, weather, and more complex particles
+
+World is less advanced and just client-side things that apply to everyone
+(Correct me if I'm wrong, this is all my opinion and understanding of everything.)
